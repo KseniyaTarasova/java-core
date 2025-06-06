@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "by.bot"
+group = "by.innowise"
 version = "1.0-SNAPSHOT"
 
 repositories {
