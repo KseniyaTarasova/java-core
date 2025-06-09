@@ -3,18 +3,6 @@ package by.innowise.custom_linked_list;
 import java.util.NoSuchElementException;
 
 public class LinkedList<T> {
-    private static class Node<T> {
-        private Node<T> prev;
-        private T value;
-        private Node<T> next;
-
-        public Node(Node<T> prev, T value, Node<T> next) {
-            this.prev = prev;
-            this.value = value;
-            this.next = next;
-        }
-    }
-
     private Node<T> first;
     private Node<T> last;
     private int size;
@@ -70,17 +58,17 @@ public class LinkedList<T> {
     }
 
     public T getFirst() {
-        checkIsListEmpty(this.first);
+        checkListEmpty(this.first);
         return this.first.value;
     }
 
     public T getLast() {
-        checkIsListEmpty(this.last);
+        checkListEmpty(this.last);
         return this.last.value;
     }
 
     public void removeFirst() {
-        checkIsListEmpty(this.first);
+        checkListEmpty(this.first);
 
         Node<T> next = this.first.next;
         this.first.value = null;
@@ -96,7 +84,7 @@ public class LinkedList<T> {
     }
 
     public void removeLast() {
-        checkIsListEmpty(this.last);
+        checkListEmpty(this.last);
 
         Node<T> prev = this.last.prev;
         this.last.value = null;
@@ -149,7 +137,7 @@ public class LinkedList<T> {
         }
     }
 
-    private void checkIsListEmpty(Node<T> node) {
+    private void checkListEmpty(Node<T> node) {
         if (node == null) {
             throw new NoSuchElementException("List is empty");
         }
@@ -169,5 +157,17 @@ public class LinkedList<T> {
             }
         }
         return current;
+    }
+
+    private static class Node<T> {
+        private Node<T> prev;
+        private T value;
+        private Node<T> next;
+
+        public Node(Node<T> prev, T value, Node<T> next) {
+            this.prev = prev;
+            this.value = value;
+            this.next = next;
+        }
     }
 }
